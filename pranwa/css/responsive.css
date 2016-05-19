@@ -1,0 +1,28 @@
+@media screen and (max-width: 1450px) {
+    .banner .button-container {
+        top: 15%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .banner img {
+		margin-top: 0px;
+	}
+    .subpage h1 {
+        font-size: 28px;
+    }
+}
+@media screen and (max-width: 540px) {
+    footer {
+        height: 190px;
+    }
+    .copyright {
+        float:left;
+        width:100%;
+        border-top:2px solid lawngreen;
+        margin-top: 10px;
+        padding-top:10px;
+    }
+    .contact-info p, .address {
+        font-size: 15px;
+    }
+}

@@ -1,25 +1,49 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-	Layout = null;
-}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+    Layout = null;
+    IPublishedContent page = Umbraco.TypedContent(CurrentPage.id);
+    IPublishedContent node = Umbraco.TypedContent(1050);
+    IPublishedContent image = Umbraco.TypedMedia(node.GetPropertyValue("logo"));
+    string seo_title = page.HasValue("seo_title") ? page.GetPropertyValue("seo_title").ToString() : node.GetPropertyValue("seo_title").ToString();
+    string seo_description = page.HasValue("seo_description") ? page.GetPropertyValue("seo_description").ToString() : node.GetPropertyValue("seo_description").ToString();
+    string seo_keywords = page.HasValue("seo_keywords") ? page.GetPropertyValue("seo_keywords").ToString() : node.GetPropertyValue("seo_keywords").ToString();
+}<!DOCTYPE html>
+<html lang="th">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PRANWA</title>
+    <meta name="description" content="@seo_description" />
+    <meta name="keywords" content="@seo_keywords" />
+    <title>@seo_title</title>
     <link href="~/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/fas/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/css/styles.css" rel="stylesheet">
+    <link href="~/css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-      <div class="container">
-          @RenderBody()
-      </div>
+</head>
+<body>
+    @Html.Partial("nav")
+    <div class="container-fluid wrapper">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="contact-box">
+            <p class="phone"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> @node.GetPropertyValue("phone")</p>
+            <p class="email"><i class="fa fa-envelope-o" aria-hidden="true"></i> @node.GetPropertyValue("email")</p>
+        </div>
+        <div class="copyright">
+            <a href="/contact"><i class="fa fa-map"></i> แผนที่</a>
+            <a href="/contact"><i class="fa fa-facebook"></i> Facebook Page</a>
+            <a href="#"><i class="fa fa-copyright"></i> Copyright  by Panwa Kitchen 2016</a>
+        </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="~/scripts/libs/bootstrap.min.js"></script>
-  </body>
+    <script src="~/scripts/mixpanel.js"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-573c7429229d6287"></script>
+</body>
 </html>

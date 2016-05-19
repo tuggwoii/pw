@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+    IPublishedContent node = Umbraco.TypedContent(1050);
+    IPublishedContent image = Umbraco.TypedMedia(node.GetPropertyValue("logo"));
+}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@node.GetPropertyValue("seo_description")" />
+    <meta name="keywords" content="@node.GetPropertyValue("seo_keywords")" />
+    <title>@node.GetPropertyValue("seo_title")</title>
+    <link href="~/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/fas/css/font-awesome.min.css" rel="stylesheet">
+	<link href="~/css/styles.css" rel="stylesheet">
+	<link href="~/css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	  @Html.Partial("nav")
+      <div class="container-fluid">
+          @RenderBody()
+      </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="~/scripts/libs/bootstrap.min.js"></script>
+    <script src="~/scripts/mixpanel.js"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-573c7429229d6287"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    IPublishedContent page = Umbraco.TypedContent(CurrentPage.id);
+    IPublishedContent node = Umbraco.TypedContent(1050);
+    IPublishedContent image = Umbraco.TypedMedia(node.GetPropertyValue("logo"));
+
+    string home_title = @node.HasValue("nav_title") ? node.GetPropertyValue("nav_title").ToString() : node.Name;
+}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <img class="logo" src="@image.GetPropertyValue("umbracoFile")" alt="logo" />
+       </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+           <li @String.Format(page.Id == node.Id? "class=active" : "")><a href="/">@home_title</a></li>
+           @foreach (IPublishedContent p in node.Children)
+           {
+                 string title = p.HasValue("nav_title") ? p.GetPropertyValue("nav_title").ToString() : p.Name;
+                <li @String.Format(page.Id == p.Id? "class=active" : "")><a href="@p.Url">@title</a></li>
+           }
+      </ul>
+    </div>
+  </div>
+</nav>

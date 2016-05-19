@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="umbracoDbDSN-Web.config Connection String" description="umbracoDbDSN Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:sytsql.database.windows.net,1433;Database=pranwa;User ID=syamkong@sytsql;Password=Syamsql2016" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\git\\pw\\pranwa\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='umbracoDbDSN']/@connectionString" />
+  </parameter>
+</parameters>

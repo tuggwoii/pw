@@ -1,0 +1,33 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = "Master.cshtml";
+}
+<div class="row banner">
+	<img src="@Url.GetCropUrl(Model.Content, "image", "banner")" />
+    <div class="button-container">
+        <p class="time">@Umbraco.Field("time")</p>
+        <button type="button" class="btn btn-success">มาครัวพรรวาได้ที่นี่</button>
+        <button type="button" class="btn btn-default">ติดต่อสอบถาม</button>
+        <div class="contact-box">
+            <p class="phone"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> @Umbraco.Field("phone")</p>
+            <p class="email"><i class="fa fa-envelope-o" aria-hidden="true"></i> @Umbraco.Field("email")</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="socials">
+        <div class="addthis_native_toolbox"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>@Umbraco.Field("title") <i class="fa fa-cutlery" aria-hidden="true"></i></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            @Umbraco.Field("text")
+        </div>
+    </div>
+</div>
