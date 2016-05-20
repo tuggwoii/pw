@@ -111,6 +111,7 @@ a.btn.btn-default {
 }
 .contact-box {
     margin-top: 20px;
+    width: 350px;
 }
 .contact-box .fa {
     width: 30px;

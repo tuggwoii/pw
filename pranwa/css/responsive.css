@@ -3,6 +3,11 @@
         top: 15%;
     }
 }
+@media screen and (max-width: 825px) {
+    .nav>li>a {
+            padding: 13px 9px;
+    }
+}
 @media screen and (max-width: 767px) {
     .banner img {
 		margin-top: 0px;
