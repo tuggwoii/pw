@@ -1,4 +1,66 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
+    IPublishedContent node = Umbraco.TypedContent(CurrentPage.id);
 }
+<div class="subpage menu">
+    <div class="row">
+        <h1><i class="fa fa-cutlery" aria-hidden="true"></i> @Umbraco.Field("title")</h1>
+    </div>
+    <div class="container suppage-container">
+        @foreach (IPublishedContent category in node.Children)
+        {
+            <div class="col-lg-12">
+                <h2>@category.GetPropertyValue("title")</h2>
+                @if (category.DocumentTypeAlias.Equals("category"))
+                {
+                    <div class="row">
+                        @{
+                            var ids = category.GetPropertyValue("images").ToString();
+                            var images = ids.Split(',');
+                        }
+                        @foreach (var id in images)
+                        {
+                            if (!String.IsNullOrEmpty(id))
+                            {
+                                int imageId = int.Parse(id);
+                                IPublishedContent image = Umbraco.TypedMedia(imageId);
+
+                                <div class="col-lg-6">
+                                    <a href="@image.GetPropertyValue("umbracoFile")" target="_blank">
+                                        <img src="@image.GetPropertyValue("umbracoFile")" alt="@image.Name" />
+                                    </a>
+                                </div>
+                            }
+                        }
+                    </div>
+                            }
+                            else
+                            {
+                                <div class="row">
+                                    @foreach (IPublishedContent single in category.Children)
+                                    {
+                                        var ids = single.GetPropertyValue("images").ToString();
+                                        var images = ids.Split(',');
+                                        foreach (var id in images)
+                                        {
+                                            if (!String.IsNullOrEmpty(id))
+                                            {
+                                                int imageId = int.Parse(id);
+                                                IPublishedContent image = Umbraco.TypedMedia(imageId);
+
+                                                <div class="col-lg-4 menu-image-container">
+                                                    <a class="menu-image" href="@image.GetPropertyValue("umbracoFile")" target="_blank">
+                                                        <img src="@image.GetPropertyValue("umbracoFile")" alt="@image.Name" />
+                                                    </a>
+                                                    <span class="menu-caption">@single.GetPropertyValue("title")</span>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            }
+               </div>
+          }
+    </div>
+</div>

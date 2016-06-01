@@ -157,12 +157,18 @@ footer .fa-copyright {
 footer .fa-map {
     width:30px;
 }
+.subpage {
+    min-height: 680px;
+}
 .subpage h1 {
-    background: darkturquoise;
+    background: rgb(77,106,121);
     margin: 0;
     padding: 50px;
     text-align: center;
     color: #fff;
+}
+.subpage h1 .fa {
+    margin-right: 10px;
 }
 .subpage h2 {
     color: #666;
@@ -185,4 +191,54 @@ footer .fa-map {
     font-size: 18px;
     color: #999;
     margin: 20px 0;
+}
+.subpage.menu h1 {
+    background-color:rgb(125,126,128);
+}
+.subpage.menu h2 {
+    margin-top: 70px;
+    font-size: 35px;
+}
+img {
+    max-width: 100%;
+}
+.menu img {
+    margin-top: 20px;
+}
+.menu-image-container {
+    position:relative;
+}
+.menu-image-container .menu-caption {
+    position:absolute;
+    bottom:20px;
+    left:30px;
+    font-size: 20px;
+    color:#fff;
+    text-shadow: 2px 2px 10px #000;
+}
+.promotion ul, .promotion li {
+    list-style:none;
+}
+.promotion li img {
+    width: 200px;
+    float:left;
+}
+.promotion li a, .promotion li a:hover {
+    text-decoration:none;
+}
+.promotion li .title {
+    font-size: 20px;
+    display:block;
+    color: #666;
+}
+.promotion li .detail {
+    font-size: 16px;
+    display:block;
+    color: #333;
+}
+.promotion .promotion-item {
+    float:left;
+    display:inline-block;
+    width: calc(100% - 200px);
+    padding: 50px 20px;
 }
