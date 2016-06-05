@@ -1,12 +1,30 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
+    IPublishedContent node = Umbraco.TypedContent(CurrentPage.id);
 }
 <div class="subpage">
     <div class="row">
-        <h1><i class="fa fa-volume-control-phone" aria-hidden="true"></i> @Umbraco.Field("title")</h1>
+        <h1><i class="fa fa-certificate" aria-hidden="true"></i> @Umbraco.Field("title")</h1>
     </div>
-    <div class="container suppage-container">
+    <div class="container promotion suppage-container">
+        @foreach (IPublishedContent promotion in node.Children)
+        {
+            int imageId = int.Parse(promotion.GetPropertyValue("image").ToString());
+            IPublishedContent image = Umbraco.TypedMedia(imageId);
 
+            <ul>
+                <li>
+                    <a href="@promotion.Url">
+                        <img src="@image.GetPropertyValue("umbracoFile")" alt="@image.Name" />
+                        <span class="promotion-item">
+                            <span class="title">@promotion.GetPropertyValue("title")</span>
+                            <span class="detail">@promotion.GetPropertyValue("detail")</span>
+                        </span>
+                        
+                    </a>
+                </li>
+            </ul>
+        }
     </div>
 </div>

@@ -1,12 +1,46 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
+    IPublishedContent node = Umbraco.TypedContent(CurrentPage.id);
 }
-<div class="subpage">
-    <div class="row">
-        <h1><i class="fa fa-volume-control-phone" aria-hidden="true"></i> @Umbraco.Field("title")</h1>
-    </div>
-    <div class="container suppage-container">
+<div class="subpage view">
+   
 
+    <div class="row">
+        <h1><i class="fa fa-picture-o" aria-hidden="true"></i> @Umbraco.Field("title")</h1>
+    </div>
+
+    <div class="row top-banner">
+        <img src="@Url.GetCropUrl(Model.Content, "banner", "subpage-banner")" />
+        <div class="dim-image"></div>
+    </div>
+    
+    <div class="container suppage-container">
+        <h2><i class="fa fa-picture-o" aria-hidden="true"></i> ภาพบรรยากาศ</h2>
+        <div class="row">
+            @if (node.HasValue("images"))
+            {
+                var ids = node.GetPropertyValue("images").ToString();
+                var images = ids.Split(',');
+
+                foreach (var id in images)
+                {
+                    if (!String.IsNullOrEmpty(id))
+                    {
+                        int imageId = int.Parse(id);
+                        IPublishedContent image = Umbraco.TypedMedia(imageId);
+
+                        <div class="col-lg-4 col-md-6 col-xs-12">
+                            <div class="view-item">
+                                <a href="@image.GetPropertyValue("umbracoFile")" target="_blank">
+                                    <img src="@image.GetPropertyValue("umbracoFile")" alt="@image.Name" />
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+        
     </div>
 </div>

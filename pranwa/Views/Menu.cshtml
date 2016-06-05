@@ -7,6 +7,12 @@
     <div class="row">
         <h1><i class="fa fa-cutlery" aria-hidden="true"></i> @Umbraco.Field("title")</h1>
     </div>
+
+    <div class="row top-banner">
+        <img src="@Url.GetCropUrl(Model.Content, "banner", "subpage-banner")" />
+        <div class="dim-image"></div>
+    </div>
+
     <div class="container suppage-container">
         @foreach (IPublishedContent category in node.Children)
         {

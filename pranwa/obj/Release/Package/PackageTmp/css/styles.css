@@ -11,6 +11,9 @@ body {
 .wrapper {
     padding-bottom: 100px;
 }
+.banner {
+    border-bottom: 8px solid green;
+}
 .banner img {
 	width:100%;
 	margin-top: -75px;
@@ -63,6 +66,21 @@ h1 {
 	color: #666;
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
+    font-size: 28px;
+}
+h1 span {
+    position:relative;
+    top:-2px;
+}
+h1 .fa {
+    font-size: 22px;
+    position: relative;
+    top: -2px;
+}
+.subpage h1 .fa {
+    font-size: 26px;
+    position: relative;
+    top: -2px;
 }
 .navbar-default .navbar-nav>li>a {
 	font-size: 16px;
@@ -157,6 +175,9 @@ footer .fa-copyright {
 footer .fa-map {
     width:30px;
 }
+.subpage {
+    min-height: 680px;
+}
 .subpage h1 {
     background: rgb(77,106,121);
     margin: 0;
@@ -193,13 +214,13 @@ footer .fa-map {
     background-color:rgb(125,126,128);
 }
 .subpage.menu h2 {
-    margin-top: 70px;
+    margin-top: 30px;
     font-size: 35px;
 }
 img {
     max-width: 100%;
 }
-.menu img {
+.menu .suppage-container img {
     margin-top: 20px;
 }
 .menu-image-container {
@@ -212,4 +233,91 @@ img {
     font-size: 20px;
     color:#fff;
     text-shadow: 2px 2px 10px #000;
+}
+.promotion ul, .promotion li {
+    list-style:none;
+}
+.promotion li img {
+    width: 200px;
+    float:left;
+}
+.promotion li a, .promotion li a:hover {
+    text-decoration:none;
+}
+.promotion li .title {
+    font-size: 20px;
+    display:block;
+    color: #666;
+}
+.promotion li .detail {
+    font-size: 16px;
+    display:block;
+    color: #333;
+}
+.promotion .promotion-item {
+    float:left;
+    display:inline-block;
+    width: calc(100% - 200px);
+    padding: 50px 20px;
+}
+.map-box {
+    position: absolute;
+    top: 10%;
+    left: 35px;
+    width: 100%;
+    z-index: 99999;
+    padding: 5px;
+    background: #999;
+    max-width: 980px;
+    border-radius: 5px;
+    display:none;
+}
+.map-box .fa-remove {
+    font-size: 20px;
+    color:#fff;
+    position:absolute;
+    right:120px;
+    top:19px;
+    z-index:999;
+    cursor:pointer;
+    display:none;
+}
+.dim-image {
+    position:absolute;
+    left:0;
+    top:0;
+    background:rgba(0,0,0,0.1) ;
+    width:100%;
+    height:100%;
+}
+.banner, .top-banner {
+    position:relative;
+}
+.top-banner {
+    margin-top: -1px;
+}
+.view h1 {
+    background-color:green;
+}
+.view .top-banner {
+    border-bottom: 8px solid green;
+}
+.view-item {
+    height:250px;
+    margin-top:20px;
+    padding:5px;
+    background-color:#fff;
+    border:1px solid #ccc;
+    box-sizing: border-box;
+}
+.view-item img {
+    width:100%;
+    height:100%;
+}
+.home h1 {
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+.more {
+    margin-top:30px;
 }

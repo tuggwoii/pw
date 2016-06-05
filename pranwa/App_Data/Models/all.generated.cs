@@ -7,7 +7,7 @@ using  Umbraco.Core.Models.PublishedContent;
 using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
-[assembly: PureLiveAssembly, System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly: PureLiveAssembly, System.Reflection.AssemblyVersion("0.0.0.3")]
 
 
 // FILE: models.generated.cs
@@ -255,6 +255,15 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
+
+		///<summary>
+		/// Banner
+		///</summary>
+		[ImplementPropertyType("banner")]
+		public Umbraco.Web.Models.ImageCropDataSet Banner
+		{
+			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("banner"); }
+		}
 	}
 
 	/// <summary>Promotion</summary>
@@ -307,6 +316,24 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
+
+		///<summary>
+		/// Banner
+		///</summary>
+		[ImplementPropertyType("banner")]
+		public Umbraco.Web.Models.ImageCropDataSet Banner
+		{
+			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("banner"); }
+		}
+
+		///<summary>
+		/// Images
+		///</summary>
+		[ImplementPropertyType("images")]
+		public string Images
+		{
+			get { return this.GetPropertyValue<string>("images"); }
+		}
 	}
 
 	/// <summary>Category</summary>
@@ -341,6 +368,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Images
 		{
 			get { return this.GetPropertyValue<string>("images"); }
+		}
+
+		///<summary>
+		/// Show on home
+		///</summary>
+		[ImplementPropertyType("showHome")]
+		public bool ShowHome
+		{
+			get { return this.GetPropertyValue<bool>("showHome"); }
 		}
 
 		///<summary>
