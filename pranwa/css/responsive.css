@@ -67,6 +67,15 @@
     .view-item {
         height:260px;
     }
+    .promotion .promotion-item {
+        width: 100%;
+        padding: 15px 10px;
+    }
+    .promotion li img {
+        float:none;
+        display:block;
+        margin:0 auto
+    }
 }
 @media screen and (max-width: 500px) {
     .view-item {

@@ -433,6 +433,9 @@
     <Content Include="bin\x86\sqlceme40.dll" />
     <Content Include="bin\x86\sqlceqp40.dll" />
     <Content Include="bin\x86\sqlcese40.dll" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="css\bootstrap\css\bootstrap-theme.css" />
     <Content Include="css\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap\css\bootstrap.css" />
@@ -448,7 +451,8 @@
     <Content Include="css\responsive.css" />
     <Content Include="css\rte.css" />
     <Content Include="css\styles.css" />
-    <Content Include="media\1001\0d28a022c22f43149edd3414b205fc84.jpg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="media\1001\main.png" />
     <Content Include="media\1002\logo.png" />
     <Content Include="media\1003\s__557206.jpg" />
     <Content Include="media\1003\s__557206_big-thumb.jpg" />
@@ -592,10 +596,29 @@
     <Content Include="media\1055\wongnai-logo_thumb.jpg" />
     <Content Include="media\1055\wongnai-logo_thumb.png" />
     <Content Include="media\1056\menu.jpg" />
+    <Content Include="media\1057\thumbnail.png" />
+    <Content Include="media\1057\thumbnail_big-thumb.jpg" />
+    <Content Include="media\1057\thumbnail_big-thumb.png" />
+    <Content Include="media\1057\thumbnail_thumb.jpg" />
+    <Content Include="media\1057\thumbnail_thumb.png" />
+    <Content Include="media\1058\follow_wongnai.jpg" />
+    <Content Include="media\1058\follow_wongnai_big-thumb.jpg" />
+    <Content Include="media\1058\follow_wongnai_thumb.jpg" />
+    <Content Include="media\1059\ads-1.png" />
+    <Content Include="media\1059\ads-1_big-thumb.jpg" />
+    <Content Include="media\1059\ads-1_big-thumb.png" />
+    <Content Include="media\1059\ads-1_thumb.jpg" />
+    <Content Include="media\1059\ads-1_thumb.png" />
     <Content Include="packages.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\libs\bootstrap.min.js" />
     <Content Include="scripts\map.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -605,7 +628,9 @@
     <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
-    <Content Include="Config\UrlRewriting.config" />
+    <Content Include="Config\UrlRewriting.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\umbracoSettings.config" />
     <Content Include="Config\trees.config" />
     <Content Include="Config\tinyMceConfig.config" />
@@ -790,12 +815,20 @@
     <Content Include="css\fas\scss\_screen-reader.scss" />
     <Content Include="css\fas\scss\_stacked.scss" />
     <Content Include="css\fas\scss\_variables.scss" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\pranwa.pubxml" />
     <Content Include="Views\Contact.cshtml" />
     <Content Include="Views\Menu.cshtml" />
     <Content Include="Views\Promotion.cshtml" />
     <Content Include="Views\View.cshtml" />
     <Content Include="Views\Single.cshtml" />
+    <Content Include="Views\promotionDetail.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Static.cshtml" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

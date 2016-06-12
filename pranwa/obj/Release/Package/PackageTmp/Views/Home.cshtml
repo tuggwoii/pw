@@ -4,6 +4,7 @@
     IPublishedContent node = Umbraco.TypedContent(CurrentPage.id);
     IPublishedContent view = node.Children.Where(x => x.DocumentTypeAlias.Equals("view")).First();
     IPublishedContent menu = node.Children.Where(x => x.DocumentTypeAlias.Equals("menu")).First();
+    IPublishedContent pro = node.Children.Where(x => x.DocumentTypeAlias.Equals("activity")).First();
 }
 <div class="row banner">
     <img src="@Url.GetCropUrl(Model.Content, "image", "banner")" />
@@ -38,10 +39,42 @@
         <div class="col-lg-12">
             @Umbraco.Field("text")
         </div>
+        <div class="col-lg-12">
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/Iy39jLJGFpo" frameborder="0" allowfullscreen></iframe>
+        </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <h1><i class="fa fa-certificate" aria-hidden="true"></i> โปรโมชั่น/กิจกรรม</h1>
+        </div>
+        <div class="col-lg-12 promotion">
+            <ul>
+            @foreach (IPublishedContent p in pro.Children)
+            {
+                if (p.HasValue("showHome"))
+                {
+                    if (p.GetPropertyValue("showHome").ToString().Equals("True"))
+                    {
+                        int imageId = int.Parse(p.GetPropertyValue("image").ToString());
+                        IPublishedContent image = Umbraco.TypedMedia(imageId);
+
+                        <li>
+                            <a href="@p.Url">
+                                <img src="@image.GetPropertyValue("umbracoFile")" alt="@image.Name" />
+                                <span class="promotion-item">
+                                    <span class="title">@p.GetPropertyValue("title")</span>
+                                    <span class="detail">@p.GetPropertyValue("detail")</span>
+                                </span>
+
+                            </a>
+                        </li>
+                    }
+                }
+            }
+            </ul>
+        </div>
+        <div class="col-lg-12 more">
+            <a href="@pro.Url" type="button" class="btn btn-success">ดูทั้งหมด <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
         </div>
     </div>
     <div class="row">
@@ -132,6 +165,20 @@
         <div class="col-md-3 col-xs-6">
             <a href="https://www.wongnai.com/restaurants/234343YF-%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%A7%E0%B8%9E%E0%B8%A3%E0%B8%A3%E0%B8%A7%E0%B8%B2" target="_blank">
                 <img src="/media/1055/wn.png" />
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1><i class="fa fa-link" aria-hidden="true"></i> <span>Link ที่น่าสนใจ</span></h1>
+        </div>
+        <div class="col-md-3 col-xs-6 ads">
+            <a href="http://www.mio7japan.com/" target="_blank">
+                <img src="/media/1059/ads-1.png" />
+                <span class="ads-header">MIO7 JAPAN : มิโอะเซเว่น เจแปน</span>
+                <span class="ads-detail">
+                    บริการพรีออเดอร์ (Pre-Order) และนำเข้าสินค้าญี่ปุ่นทุกชนิด และรับประมูลสินค้า Yahoo! Auctions Japan บริการด้วยหัวใจ ในราคาประหยัด
+                </span>
             </a>
         </div>
     </div>

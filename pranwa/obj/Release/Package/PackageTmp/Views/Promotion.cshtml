@@ -8,12 +8,13 @@
         <h1><i class="fa fa-certificate" aria-hidden="true"></i> @Umbraco.Field("title")</h1>
     </div>
     <div class="container promotion suppage-container">
-        @foreach (IPublishedContent promotion in node.Children)
-        {
-            int imageId = int.Parse(promotion.GetPropertyValue("image").ToString());
-            IPublishedContent image = Umbraco.TypedMedia(imageId);
+        <ul>
+            @foreach (IPublishedContent promotion in node.Children)
+            {
+                int imageId = int.Parse(promotion.GetPropertyValue("image").ToString());
+                IPublishedContent image = Umbraco.TypedMedia(imageId);
 
-            <ul>
+
                 <li>
                     <a href="@promotion.Url">
                         <img src="@image.GetPropertyValue("umbracoFile")" alt="@image.Name" />
@@ -21,10 +22,10 @@
                             <span class="title">@promotion.GetPropertyValue("title")</span>
                             <span class="detail">@promotion.GetPropertyValue("detail")</span>
                         </span>
-                        
+
                     </a>
                 </li>
-            </ul>
-        }
+            }
+        </ul>
     </div>
 </div>

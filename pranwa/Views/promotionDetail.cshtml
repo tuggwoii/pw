@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    IPublishedContent node = Umbraco.TypedContent(CurrentPage.id);
+
+}
+<div class="subpage">
+    <div class="row">
+        <h1><i class="fa fa-certificate" aria-hidden="true"></i> @Umbraco.Field("title")</h1>
+    </div>
+    <div class="container promotion suppage-container">
+        <div class="row">
+            <div class="socials">
+                <div class="addthis_native_toolbox"></div>
+            </div>
+        </div>
+        <div class="row">
+            @if (node.HasValue("image"))
+            {
+
+                int imageId = int.Parse(node.GetPropertyValue("image").ToString());
+                IPublishedContent image = Umbraco.TypedMedia(imageId);
+
+                <div class="promotion-image col-lg-12">
+                    <img src="@image.GetPropertyValue("umbracoFile")" alt="@image.Name" />
+                </div>
+            }
+
+            <div class="rte col-lg-12">
+                @Umbraco.Field("fullDetail")
+            </div>
+        </div>
+        
+    </div>
+</div>

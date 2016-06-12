@@ -18,7 +18,7 @@ using Umbraco.Web;
 using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
-[assembly: PureLiveAssembly, System.Reflection.AssemblyVersion("0.0.0.3")]
+[assembly: PureLiveAssembly, System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -81,6 +81,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Seo_title
 		{
 			get { return this.GetPropertyValue<string>("seo_title"); }
+		}
+
+		///<summary>
+		/// Thumbnail
+		///</summary>
+		[ImplementPropertyType("thumbnail")]
+		public string Thumbnail
+		{
+			get { return this.GetPropertyValue<string>("thumbnail"); }
 		}
 
 		///<summary>
@@ -445,6 +454,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Full detail
+		///</summary>
+		[ImplementPropertyType("fullDetail")]
+		public IHtmlString FullDetail
+		{
+			get { return this.GetPropertyValue<IHtmlString>("fullDetail"); }
+		}
+
+		///<summary>
 		/// Image
 		///</summary>
 		[ImplementPropertyType("image")]
@@ -454,12 +472,47 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// show on home
+		///</summary>
+		[ImplementPropertyType("showHome")]
+		public bool ShowHome
+		{
+			get { return this.GetPropertyValue<bool>("showHome"); }
+		}
+
+		///<summary>
 		/// Title
 		///</summary>
 		[ImplementPropertyType("title")]
 		public string Title
 		{
 			get { return this.GetPropertyValue<string>("title"); }
+		}
+	}
+
+	/// <summary>Static</summary>
+	[PublishedContentModel("static")]
+	public partial class Static : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "static";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Static(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Static, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
 	}
 

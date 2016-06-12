@@ -30,23 +30,23 @@ body {
 }
 nav.navbar {
 	margin: 0;
-    background: rgba(173,255,47,1);
+    background: #333;
 	border-radius:0;
 	min-height: 70px;
 	border: none;
     z-index: 999;
 }
 .navbar-default .navbar-toggle {
-    border-color: lawngreen;
+    border-color: #ccc;
 }
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-    background-color: lawngreen;
+    background-color: #ccc;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: lawngreen;
+    border-color: #ccc;
 }
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-    border-color: lawngreen !important;
+    border-color: #ccc !important;
 }
 .navbar-default .navbar-brand {
     margin-top: 10px;
@@ -135,7 +135,7 @@ a.btn.btn-default {
     width: 30px;
 }
 footer {
-    background: rgba(173,255,47,1);
+    background: #333;
     height: 100px;
     padding: 15px;
 }
@@ -146,15 +146,26 @@ footer .contact-box {
 footer p {
     margin: 0 0 5px 0;
     font-size: 14px;
+    color:#ccc;
 }
 footer a {
     display:block;
     font-size: 14px;
     margin: 0 0 5px 0;
-    color: dimgrey;
+    color: #ccc;
 }
 footer a:hover, footer a:active, footer a:focus {
     text-decoration:none;
+    color:#fff;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #ccc;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:active {
+    color: #fff;
+}
+.navbar-default .navbar-nav>.active>a {
+     color: #fff;
 }
 .copyright {
     float:right;
@@ -236,6 +247,14 @@ img {
 }
 .promotion ul, .promotion li {
     list-style:none;
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.promotion li {
+    border-bottom: 1px dashed #ccc;
+    padding: 10px 0;
 }
 .promotion li img {
     width: 200px;
@@ -320,4 +339,36 @@ img {
 }
 .more {
     margin-top:30px;
+}
+.promotion-image img {
+    max-width: 500px;
+    width: 100%;
+}
+.promotion .socials {
+    margin-top: -35px;
+}
+a {
+    color: #999;
+    font-weight: bold;
+}
+a:hover, a:active, a:focus {
+    color: #999;
+}
+li a {
+    font-weight:normal;
+}
+footer a {
+    font-weight:normal;
+}
+.ads a:hover {
+    text-decoration: none;
+}
+.ads .ads-header {
+    margin: 10px 0 5px 0;
+    display: block;
+
+}
+.ads .ads-detail {
+    font-weight: normal;
+    display: block;
 }

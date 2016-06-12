@@ -7,6 +7,22 @@
     string seo_title = page.HasValue("seo_title") ? page.GetPropertyValue("seo_title").ToString() : node.GetPropertyValue("seo_title").ToString();
     string seo_description = page.HasValue("seo_description") ? page.GetPropertyValue("seo_description").ToString() : node.GetPropertyValue("seo_description").ToString();
     string seo_keywords = page.HasValue("seo_keywords") ? page.GetPropertyValue("seo_keywords").ToString() : node.GetPropertyValue("seo_keywords").ToString();
+    string seo_thumb_id = page.HasValue("thumbnail") ? page.GetPropertyValue("thumbnail").ToString() : node.GetPropertyValue("thumbnail").ToString();
+    string base_url = "http://www.panwakitchen.com";
+    string url = "";
+    string thumb = base_url + Umbraco.TypedMedia(seo_thumb_id).GetPropertyValue("umbracoFile").ToString();
+    if (page.DocumentTypeAlias.Equals("promotionItem"))
+    {
+        url = base_url + page.Url;
+        seo_title = page.GetPropertyValue("title").ToString();
+        seo_description = page.GetPropertyValue("detail").ToString();
+        if(page.HasValue("image"))
+        {
+            string image_id = page.GetPropertyValue("image").ToString();
+            thumb = base_url + Umbraco.TypedMedia(image_id).GetPropertyValue("umbracoFile").ToString();
+        }
+    }
+
 }<!DOCTYPE html>
 <html lang="th">
 <head>
@@ -16,6 +32,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@seo_description" />
     <meta name="keywords" content="@seo_keywords" />
+    <!--FB-->
+    <meta property="og:url" content="@url" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="@seo_title" />
+    <meta property="og:description" content="@seo_description" />
+    <meta property="og:image" content="@thumb" />
+
     <title>@seo_title</title>
     <link href="~/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/fas/css/font-awesome.min.css" rel="stylesheet">
