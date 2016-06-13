@@ -609,6 +609,12 @@
     <Content Include="media\1059\ads-1_big-thumb.png" />
     <Content Include="media\1059\ads-1_thumb.jpg" />
     <Content Include="media\1059\ads-1_thumb.png" />
+    <Content Include="media\1060\logo-aroi.png" />
+    <Content Include="media\1060\logo-aroi_thumb.jpg" />
+    <Content Include="media\1060\logo-aroi_thumb.png" />
+    <Content Include="media\1061\rwcm.png" />
+    <Content Include="media\1061\rwcm_thumb.jpg" />
+    <Content Include="media\1061\rwcm_thumb.png" />
     <Content Include="packages.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="scripts\bootstrap.js" />
